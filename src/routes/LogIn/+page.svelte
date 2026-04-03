@@ -1,61 +1,71 @@
 
+<h1 class="header">ลงชื่อเข้าใช้</h1>
+<form method="POST" action="?/login">
+<div class="container">
+<label>
+รหัสนักศึกษา
+<br>
+    <input name="username" placeholder="Username" type="username"required/>
+</label>
+<br>
+<br>
+
+<label>
+เลขประจำตัวประชาชน
+<br>
+<input name="password" type="password" placeholder="PassWord" required/>
 
 
-  <button onclick={Add}>Add Item</button>
+</label>
+<br>
+<br>
+<button>Submit</button>
+ </div>
 
+</form>
 
-<div bind:this={container}>
-    <div style="background-color: #d3d3d3;
-  margin: 10px;
-  padding: 20px;
-  font-size: 24px;"></div>
-</div>
 
 
 
 <script>
 
-      let container;
 
-       
-      function Add(){
+  
 
-            // You can manipulate the container element here if needed
-            let item = document.createElement('div');
-            item.textContent = 'Dynamically added item';
-            item.style.backgroundColor = '#d3d3d3';
-            container.appendChild(item);    
-              
-    
+      
 
-    }
-    
+  </script>
 
-
-
-
-
-
-
-
-    
-
-
-
-
-</script>
 
 
 <style>
-.container {
-  display: flex;
-  padding: 10px;
+.container button{
+background-color: #04AA6D;
+border-radius: 1em;
+padding-bottom:10px;
+padding-left:24px;
+padding-right:24px;
+padding-top:10px;
+
+
+
 }
-.container > div {
-  background-color: #d3d3d3;
-  margin: 10px;
-  padding: 20px;
-  font-size: 24px;
+
+.header{
+  margin: auto;
+  text-align: center;
+}
+.container{
+  margin-top: 100px;
+  text-align: center;
+}
+
+input{
+width: 50%;
+  height: 50px;
+  text-align: center;
+  border: 1px solid #ccc; 
+  border-radius: 1.25rem;
 }
 
 </style>
