@@ -190,16 +190,7 @@ let { data: Comment, error } = await supabase
 
 //User Controller
 
-export async function insertUser(user){
 
-const { data, error } = await supabase
-  .from('User')
-  .insert([
-    { UserName: user.UserName, PassWord: user.PassWord },
-  ])
-  .select()
-
-}
 
 export async function getUserByUserName(usrname){
 
@@ -340,7 +331,7 @@ export async function insertUser(user){
 const { data, error } = await supabase
   .from('User')
   .insert([
-    { 'FirstName': user.FirstName, 'LastName':user.LastName },
+    { 'FirstName': user.FirstName, 'LastName':user.LastName,'UserName': user.UserName, 'PassWord': user.PassWord },
   ])
   .select()
 

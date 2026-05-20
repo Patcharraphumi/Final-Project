@@ -17,9 +17,13 @@ export const actions = {
 
         const password = data.get('password')
 
+      
 
-        const user = {"UserName":username,
-            "PassWord":password
+        let user = {
+          "UserName":username,
+            "PassWord":password,
+            "FirstName":null,
+            "LastName":null
         }
           let token
 
@@ -39,11 +43,14 @@ export const actions = {
 
   const res = await fetch(req)
 
-  
+ let userInfo =  await res.json()
+
+ user.FirstName = userInfo.displayname_th.split(" ")[0]
+
+ user.LastName = userInfo.displayname_th.split(" ")[1]
 
 
-  
-  
+  console.log(user.LastName)
   if(res.status === 200 && (await getUserByUserName(user.UserName)).length === 0){
      token =  jwt.sign({data:user}, 'secret')
      await insertUser(user)
