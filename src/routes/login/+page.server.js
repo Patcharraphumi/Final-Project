@@ -50,7 +50,7 @@ export const actions = {
  user.LastName = userInfo.displayname_th.split(" ")[1]
 
 
-  console.log(user.LastName)
+ 
   if(res.status === 200 && (await getUserByUserName(user.UserName)).length === 0){
      token =  jwt.sign({data:user}, 'secret')
      await insertUser(user)

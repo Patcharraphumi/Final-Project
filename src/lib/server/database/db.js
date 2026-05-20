@@ -331,10 +331,8 @@ export async function insertUser(user){
 const { data, error } = await supabase
   .from('User')
   .insert([
-    { 'FirstName': user.FirstName, 'LastName':user.LastName,'UserName': user.UserName, 'PassWord': user.PassWord },
-  ])
+    { 'FirstName': user.FirstName, 'LastName':user.LastName,'UserName': user.UserName, 'PassWord': user.PassWord }])
   .select()
-
 }
 
 
