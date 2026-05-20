@@ -5,49 +5,36 @@
 
   let {data} = $props()
 
-  const communities = data.community
-   let selected = "";
+  let community = data.community
+
+  community = community.map( c => ({value :c.id,name:c.name}))
 
 
-const community = new Array(communities.length).fill(null).map(i=>({
-  value:null,
-  name:null
-}))
-
-
-  for(let i=0;i<communities.length;i++){
-    community[i].value = communities[i].id
-    community[i].name = communities[i].name
-    
-  }
-  
-console.log(community)
-  //community = community.sort((a, b) => a.value - b.value)
 
 </script>
 
-<h1>หัวข้อ</h1>
+<div class='flex flex-col text-center mt-5 '>
 
 
 <form method="POST">
 
-  <label for="community-select">เลือกคอมมูนิตี้</label>
+  <label for="community-select" class='text-2xl mt-10'>เลือกคอมมูนิตี้</label>
 
 
-  <Select class="mt-2 w-[24em] justify-center-safe mx-auto" name="community"  items={community} required/>
+  <Select class="mt-2 w-xl justify-center-safe mx-auto mb-5" name="community" placeholder='คอมมูนิตี้...'  items={community} required/>
 
+  <label for="community-select" class='text-2xl'>หัวข้อ</label>
 
-<br>
-<br>
+  <Input  class="max-w-xl rounded-4xl mx-auto mb-5" type="text" id="fname" name="Title" placeholder="Title"  /> 
+    <label for="community-select" class='text-2xl mb-5'>เนื้อหา</label>
 
-  <Input  class="max-w-xl rounded-4xl mx-auto " type="text" id="fname" name="Title" placeholder="Title" required /> <br> <br>
-  <Input class=" placeholder:absolute placeholder:left-5 placeholder:top-10  max-w-xl mx-auto h-50 rounded-full" type="text" id="lname" name="Content" placeholder="Content" required />
-<br>
+  <Input class=" placeholder:absolute placeholder:left-5 placeholder:top-10  max-w-xl mx-auto h-50 rounded-full mb-5" type="text" id="lname" name="Content" placeholder="Content" required />
 
 <div class="flex justify-center">
-<Button class="mx-auto justify-center-safe" color="dark" type="submit">Submit</Button>
+<Button class="mx-auto justify-center-safe rounded-4xl w-140 " size='xl' color="orange"  type="submit">สร้างโพสต์</Button>
 </div>
 </form>
 
 
 
+</div>

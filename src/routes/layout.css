@@ -13,8 +13,8 @@
   --color-primary-300: #ffd5cc;
   --color-primary-400: #ffbcad;
   --color-primary-500: #fe795d;
-  --color-primary-600: #ef562f;
-  --color-primary-700: #eb4f27;
+  --color-primary-600: #eb4f27;
+  --color-primary-700: #eb4f28;
   --color-primary-800: #cc4522;
   --color-primary-900: #a5371b;
 
@@ -31,6 +31,8 @@
   --font-family: "IBM Plex Sans Thai", sans-serif;
   --font-display:'IBM Plex Sans Thai',' sans-serif';
 
+  --margin-top:20px;
+
 }
 
 @source "../../node_modules/flowbite-svelte/dist";
@@ -43,5 +45,6 @@
   }
  html {
     font-family: "IBM Plex Sans Thai", system-ui, sans-serif;
+    background-color: #f8f9fa;
   }
 }

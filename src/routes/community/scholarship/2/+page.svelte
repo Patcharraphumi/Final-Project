@@ -12,11 +12,13 @@
  
  let { data } = $props();
 
- let community = data.community[0]
+ let communityName = data.community[0].name
+
+ let description =  data.community[0].description
 
   let topics = $derived(data.topic)
 
-    topics = topics.sort((a, b) => b.id - a.id);
+  topics = topics.sort((a, b) => b.id - a.id);
 
 
 
@@ -26,14 +28,9 @@
 
 
 
-<div class='mb-2'>
-
-</div>
 
 {#if topics.length > 0 }
 	{#each topics as topic}
-
-
 
   <div class="flex flex-col items-center relative">
 		<Card size='lg' href='./comments/{topic.id}'  class="p-4 sm:p-6 md:p-8 mb-1.5 max-w-2xl max-h-[15rem] rounded-3xl overflow-hidden "  > 
@@ -60,9 +57,17 @@
 {/if}
 
 
-<div class="fixed right-[1.5rem] top-[16rem] ">
-  <Card class="p-4 sm:p-6 md:p-8 w-80 h-[25rem] overflow-hidden rounded-3xl shadow-2xl"> 
-    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">คำอธิบาย</h5>
-    <p>{community.description}</p>
-  </Card>
+
+
+
+
+
+ 
+
+
+ <div class="fixed right-2 top-64">
+		<Card  class="p-4 sm:p-6 md:p-8 mb-1.5  w-90 h-100 overflow-hidden rounded-3xl"  > 
+  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white mx-auto">คำอธิบาย</h5>
+  <p >{description}</p>
+</Card>
 </div>

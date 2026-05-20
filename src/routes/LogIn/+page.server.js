@@ -3,7 +3,7 @@
 import {redirect} from '@sveltejs/kit'
 import { isAdmin } from '$lib/server/database/db.js';
 import jwt from 'jsonwebtoken'
-import { userState } from '../../lib/state.svelte.js';
+import { fail } from '@sveltejs/kit';
 
 
 export const actions = {
@@ -18,9 +18,11 @@ export const actions = {
         const password = data.get('password')
 
 
-        const user = {UserName:username,
-            PassWord:password
+        const user = {"UserName":username,
+            "PassWord":password
         }
+          let token
+
 
         if(user.UserName != 'admin'){
         const  req = new Request('https://restapi.tu.ac.th/api/v1/auth/Ad/verify', {
@@ -35,29 +37,38 @@ export const actions = {
     body:JSON.stringify(user)
   });
 
- 
-    const auth = await fetch(req)
-    const res = await auth.json()
-    console.log(res)
-    console.log(await isAdmin(user.PassWord))
+  const res = await fetch(req)
 
-    }else if(username === 'admin' && await isAdmin(user.PassWord)){
-      userState.role = 'admin'
-      
-    }
+  const userData = await res.json()
 
-  const token =  jwt.sign({data:user}, 'secret')
+  console.log(userData)
+  
+  if(res.status === 200){
+     token =  jwt.sign({data:user}, 'secret')
+
+	}
+} else if(user.UserName === 'admin'&& await isAdmin(user.PassWord)){
+      token =  jwt.sign({data:user}, 'secret')
+
+}
+
+
+
+
+if(token){
 
   cookies.set('session_id', token, {
             path: '/',
-            httpOnly: true,
+            httpOnly: false,
             sameSite: 'strict',
-            maxAge: 60 * 60 * 24 * 7 // one week
+            maxAge: 60 * 60 * 24 * 7 
         });
   throw redirect(303, "/")
+      }
+  },
 
-	},
+	
 	register: async (event) => {
 		// TODO register the user
 	}
-};
+}

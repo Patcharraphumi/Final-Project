@@ -40,8 +40,6 @@ export async function load({cookies}) {
      request = await getRequestById('1',user.id)
   }
 
-  console.log(await isAMember('1',user.id))
-
 
     if(user.role === 'student' && session_id && await isAMember('1',user.id)){
     return {

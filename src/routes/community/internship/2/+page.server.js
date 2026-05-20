@@ -1,3 +1,22 @@
+import { getTopicByCommunity,getCommunityById,getCommentByTopicId, getUserById} from '$lib/server/database/db';
+
+export async function load(){
+
+let Topic = await getTopicByCommunity(2)
+
+  for(let i =0;i<Topic.length;i++){
+    Topic[i].comments = await getCommentByTopicId(Topic[i].id)
+	let user = await getUserById(Topic[i].user_id)
+	Topic[i].User = user[0] 	
+  }
+  
+console.log(Topic)
+	let community = await getCommunityById(2)
+	return {
+		topic:Topic ?? [],
+		community:community ?? []
+	}
+}
 
 
 

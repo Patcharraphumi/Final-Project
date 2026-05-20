@@ -1,71 +1,28 @@
 
-<h1 class="header">ลงชื่อเข้าใช้</h1>
-<form method="POST" action="?/login">
-<div class="container">
-<label>
-รหัสนักศึกษา
-<br>
-    <input name="username" placeholder="Username" type="username"required/>
-</label>
-<br>
-<br>
-
-<label>
-เลขประจำตัวประชาชน
-<br>
-<input name="password" type="password" placeholder="PassWord" required/>
-
-
-</label>
-<br>
-<br>
-<button>Submit</button>
- </div>
-
-</form>
-
-
-
 
 <script>
+  import {Button,Input,Card,Checkbox,Label} from 'flowbite-svelte'
+</script>
 
 
-  
-
-      
-
-  </script>
-
-
-
-<style>
-.container button{
-background-color: #04AA6D;
-border-radius: 1em;
-padding-bottom:10px;
-padding-left:24px;
-padding-right:24px;
-padding-top:10px;
-
-
-
-}
-
-.header{
-  margin: auto;
-  text-align: center;
-}
-.container{
-  margin-top: 100px;
-  text-align: center;
-}
-
-input{
-width: 50%;
-  height: 50px;
-  text-align: center;
-  border: 1px solid #ccc; 
-  border-radius: 1.25rem;
-}
-
-</style>
+<div class="flex justify-center mt-10">
+<Card class="p-4 sm:p-6 md:p-8 rounded-2xl">
+  <form class="flex flex-col space-y-6" method="POST" action="?/login">
+    <h3 class="text-heading text-xl font-medium">ลงชื่อเข้าใช้</h3>
+    <Label class="space-y-2">
+      <span>Username</span>
+      <Input  type="username" name="username" placeholder="ชื่อผู้ใช้..." required />
+    </Label>
+    <Label class="space-y-2">
+      <span>Password</span>
+      <Input type="password" name="password" placeholder="รหัสผ่าน..." required />
+    </Label>
+    <div class="flex items-start">
+      <Checkbox>Remember me</Checkbox>
+    </div>
+    <Button type="submit" class="w-full">เข้าสู่ระบบ</Button>
+    <div class="text-body text-sm font-medium">
+    </div>
+  </form>
+</Card>
+</div>
