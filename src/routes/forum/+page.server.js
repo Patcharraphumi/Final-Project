@@ -21,7 +21,7 @@ export async function load({cookies}){
     const user = await getUserByUserName(payload.data.UserName)
 
 
-    let community = [{id:2,name:"สหกิจศึกษา 2"},{id:4,name:"สำหรับนักศึกษา ปี 1"},{id:5,name:"กิจกรรมนักศึกษา"},{id:6,name:"ทุนการศึกษา 2"},{id:1,name:"สหกิจศึกษา"}]
+    let community = [{id:2,name:"สหกิจศึกษา 2"},{id:4,name:"สำหรับนักศึกษา ปี 1"},{id:5,name:"กิจกรรมนักศึกษา"},{id:6,name:"ทุนการศึกษา 2"}]
     
     const userCommunity = await getUserCommunities(user[0].id)
     
