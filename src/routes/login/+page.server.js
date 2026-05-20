@@ -1,7 +1,7 @@
 /** @satisfies {import('./$types').Actions} */
 
 import {redirect} from '@sveltejs/kit'
-import { isAdmin } from '$lib/server/database/db.js';
+import { getUserByUserName, insertUser, isAdmin } from '$lib/server/database/db.js';
 import jwt from 'jsonwebtoken'
 import { fail } from '@sveltejs/kit';
 
@@ -39,14 +39,19 @@ export const actions = {
 
   const res = await fetch(req)
 
-  const userData = await res.json()
-
-  console.log(userData)
   
-  if(res.status === 200){
+
+
+  
+  
+  if(res.status === 200 && (await getUserByUserName(user.UserName)).length === 0){
      token =  jwt.sign({data:user}, 'secret')
+     await insertUser(user)
 
 	}
+  if(res.status === 200 && (await getUserByUserName(user.UserName)).length > 0){
+  token =  jwt.sign({data:user}, 'secret')
+  }
 } else if(user.UserName === 'admin'&& await isAdmin(user.PassWord)){
       token =  jwt.sign({data:user}, 'secret')
 
