@@ -1,6 +1,6 @@
 
 
-import { getTopicByCommunity,getCommunityById,getCommentByTopicId} from '$lib/server/database/db';
+import { getTopicByCommunity,getCommunityById,getCommentByTopicId,getUserById} from '$lib/server/database/db';
 
 export async function load(){
 

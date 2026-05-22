@@ -4,6 +4,7 @@
 	/** @type {import('./$types').PageProps} */
 	  import { UserCircleSolid } from "flowbite-svelte-icons";
   import { Tabs, TabItem,Card ,CloseButton,Modal,Button} from "flowbite-svelte";
+import { invalidateAll } from '$app/navigation';
 
 	let { data } = $props();
 
@@ -48,7 +49,6 @@ async function deleteTopic(){
       body: JSON.stringify({ 'id':itemToDeleteId })
     })
 
-    await invalidateAll()
 
 }
 

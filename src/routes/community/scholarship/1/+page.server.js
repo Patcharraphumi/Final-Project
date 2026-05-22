@@ -35,13 +35,13 @@ export async function load({cookies}) {
     let request
 
     if(user.role === 'admin'){    
-     request = await getRequestByCommunity(1)
+     request = await getRequestByCommunity(3)
   }else if(user.role === 'student'){
-     request = await getRequestById('1',user.id)
+     request = await getRequestById('3',user.id)
   }
 
 
-    if(user.role === 'student' && session_id && await isAMember('1',user.id)){
+    if(user.role === 'student' && session_id && await isAMember('3',user.id)){
     return {
       Topic,
       community,
@@ -50,7 +50,7 @@ export async function load({cookies}) {
       },
       user
     }
-  } if(user.role === 'student' && session_id && !(await isAMember('1',user.id)) && request.length===0){
+  } if(user.role === 'student' && session_id && !(await isAMember('3',user.id)) && request.length===0){
     return{
       Topic:[],
       community,
@@ -59,7 +59,7 @@ export async function load({cookies}) {
       },
       user
     }
-  }else if(user.role === 'student' && session_id && !(await isAMember('1',user.id)) && request.length>0){
+  }else if(user.role === 'student' && session_id && !(await isAMember('3',user.id)) && request.length>0){
     return{
       Topic:[],
       community,
@@ -94,7 +94,7 @@ export const actions = {
     const decoded = jwtDecode(session_id)
     const payload = await getUserByUserName(decoded.data.UserName)
     const req = {
-      community_id:'1',
+      community_id:'3',
       user_id:payload[0].id
     }
     await InsertRequest(req)

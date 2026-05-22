@@ -7,13 +7,13 @@ import { P } from "flowbite-svelte";
 
 export async function load({cookies}) {
 
-  let community = await getCommunityById(1)
-
+  let community = await getCommunityById('1')
+console.log(community)
   const session_id = cookies.get('session_id')
   if(session_id === undefined){
    throw  redirect(303,'/login')
   }
-  let Topic = await getTopicByCommunity(1)
+  let Topic = await getTopicByCommunity('1')
 
   for(let i =0;i<Topic.length;i++){
     Topic[i].comments = await getCommentByTopicId(Topic[i].id)
@@ -40,7 +40,7 @@ export async function load({cookies}) {
      request = await getRequestById('1',user.id)
   }
 
-  console.log(await isAMember('1',user.id))
+
 
 
     if(user.role === 'student' && session_id && await isAMember('1',user.id)){

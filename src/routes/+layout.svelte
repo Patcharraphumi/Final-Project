@@ -6,7 +6,6 @@ import { goto } from '$app/navigation';
   import { page } from '$app/state';
 
 import Cookies from  'js-cookie'
-    import { derived } from 'svelte/store';
 
 	let { data,children } = $props();
 

@@ -16,7 +16,7 @@
 
 {#if communityName === 'internship' }
 <div class='flex justify-center-safe mt-5'>
-  <P size='3xl'>สหกิจศึกษา 2</P>
+  <P size='3xl'>สหกิจศึกษา(สำหรับพูดคุยทั่วไป)</P>
 </div>
 
 
@@ -33,7 +33,7 @@
 
 {:else if communityName === 'scholarship' }
 <div class='flex justify-center-safe mt-5'>
-  <P size='3xl'>ทุนการศึกษา 2</P>
+  <P size='3xl'>ทุนการศึกษา (สำหรับพูดคุยทั่วไป)</P>
 </div>
   
 {/if}

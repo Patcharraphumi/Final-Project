@@ -7,7 +7,7 @@ import { refreshAll } from '$app/navigation';
 import { jwtDecode } from 'jwt-decode';
 
 export async function load({ params }) {
-
+console.log(params)
   const topicId = params.id
     const Topic = await getTopicById(topicId )
 

@@ -11,7 +11,6 @@ export async function load({cookies}) {
 
 
 
-
     for(let i=0;i<request.length;i++){
        let user = await getUserById(request[i].user_id)
        request[i].userInfo = user[0]

@@ -3,6 +3,9 @@
   import { enhance } from "$app/forms";
   import Comment from "./Comment.svelte";
   import { UserCircleSolid } from "flowbite-svelte-icons";
+import Cookies from  'js-cookie'
+
+  console.log(Cookies)
 
   // Note: 'indent' is no longer needed for styling as HTML nesting handles it automatically
   let { id, Content, replys = [] } = $props();
@@ -23,7 +26,7 @@
     <div class="flex flex-col w-full">
       <div class="flex items-center gap-2 text-xs mb-1">
         <span class="font-bold text-gray-900 dark:text-white">
-          Username
+          UserName
         </span>
       </div>
 

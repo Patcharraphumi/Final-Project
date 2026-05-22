@@ -47,6 +47,8 @@ const { error } = await supabase
   .from('Topic')
   .delete()
   .eq('id', id)
+
+   if (error) console.error('deleteTopic error:', error);
 }
 
 export async function getTopicById(id){

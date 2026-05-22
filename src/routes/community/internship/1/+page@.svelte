@@ -14,8 +14,6 @@
 
  let community = data.community[0]
 
- console.log(community)
-
   let topics = $derived(data.Topic)
 
   let request = data.request
@@ -28,11 +26,13 @@
 </script>
 
 <div class='flex justify-center-safe mt-5'>
-  <P size='3xl'>สหกิจศึกษา 1</P>
+  <P size='3xl'>สหกิจศึกษา(สำหรับผู้ได้รับคัดการเลือก)</P>
 </div>
 
 <div class="fixed right-[1.5rem] top-[16rem] ">
   <Card class="p-4 sm:p-6 md:p-8 w-80 h-[25rem] overflow-hidden rounded-3xl shadow-2xl"> 
+
+
     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">คำอธิบาย</h5>
     <p>{community.description}</p>
   </Card>
@@ -48,7 +48,7 @@
 
 	{#each topics as topic}
   <div class="flex flex-col items-center relative">
-		<Card size='lg' href='./comments/{topic.id}'  class="p-4 sm:p-6 md:p-8 mb-1.5 max-w-2xl min-h-[15rem] rounded-3xl overflow-hidden flex flex-col"  > 
+		<Card size='lg' href='./1/comments/{topic.id}'  class="p-4 sm:p-6 md:p-8 mb-1.5 max-w-2xl min-h-[15rem] rounded-3xl overflow-hidden flex flex-col"  > 
 <div class="flex items-center gap-1 mb-2">
             <UserCircleSolid class="w-8 h-8 shrink-0 text-gray-500" />
             <p class="text-gray-900 dark:text-white font-medium">{topic.User.FirstName}</p>

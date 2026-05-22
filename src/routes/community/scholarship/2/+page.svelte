@@ -33,7 +33,7 @@
 	{#each topics as topic}
 
   <div class="flex flex-col items-center relative">
-		<Card size='lg' href='./comments/{topic.id}'  class="p-4 sm:p-6 md:p-8 mb-1.5 max-w-2xl max-h-[15rem] rounded-3xl overflow-hidden "  > 
+		<Card size='lg' href='./2/comments/{topic.id}'  class="p-4 sm:p-6 md:p-8 mb-1.5 max-w-2xl max-h-[15rem] rounded-3xl overflow-hidden "  > 
 <div class="flex items-center gap-1 mb-2">
             <UserCircleSolid class="w-8 h-8 shrink-0 text-gray-500" />
             <p class="text-gray-900 dark:text-white font-medium">{topic.User.FirstName}</p>

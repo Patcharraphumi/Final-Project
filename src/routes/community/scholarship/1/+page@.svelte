@@ -26,7 +26,8 @@
 </script>
 
 <div class='flex justify-center-safe mt-5'>
-  <P size='3xl'>ทุนการศึกษา</P>
+  <P size='3xl'>ทุนการศึกษา
+(สำหรับผู้ได้รับคัดการเลือก)</P>
 </div>
 
 <div class="fixed right-[1.5rem] top-[16rem] ">

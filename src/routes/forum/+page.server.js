@@ -21,7 +21,7 @@ export async function load({cookies}){
     const user = await getUserByUserName(payload.data.UserName)
 
 
-    let community = [{id:2,name:"สหกิจศึกษา 2"},{id:4,name:"สำหรับนักศึกษา ปี 1"},{id:5,name:"กิจกรรมนักศึกษา"},{id:6,name:"ทุนการศึกษา 2"}]
+    let community = [{id:2,name:"สหกิจศึกษา(พูดคุยทั่วไป)"},{id:4,name:"สำหรับนักศึกษา ปี 1"},{id:5,name:"กิจกรรมนักศึกษา"},{id:6,name:"ทุนการศึกษา(พูดคุยทั่วไป)"}]
     
     const userCommunity = await getUserCommunities(user[0].id)
     
@@ -77,7 +77,7 @@ export const actions = {
     case '5':
     throw redirect(303,'./community/activity') 
     case '6':
-    throw redirect(303,'./scholarship/2') 
+    throw redirect(303,'./community/scholarship/2') 
 }
         return { success: true };
     

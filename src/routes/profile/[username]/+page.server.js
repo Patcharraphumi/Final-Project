@@ -23,14 +23,12 @@ export async function load({ params ,cookies}) {
 	
 	let user
 
-	if (params.uername === 'admin'){
+	if (params.username === 'admin'){
 		 user = await getUserByUserName('admin')
 	}else {
 		
 		user = await getUserByUserName(params.username)
 	}
-
-
 
 
 	

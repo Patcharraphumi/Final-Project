@@ -8,7 +8,7 @@ export function load({url}){
 
     let communityName = segment[2]
 
-   console.log(communityName) 
+   
     return{
  
             communityName
